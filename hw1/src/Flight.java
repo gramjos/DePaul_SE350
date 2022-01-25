@@ -5,37 +5,58 @@ import java.util.UUID;
 
 public class Flight {
   private Airline airline;
-  private Airport origine;
+  private Airport origin;
   private Airport destination;
   private String flightNumber;
   private Date departureDate;
 
   public Flight () {
     Airline airline = new Airline();
-    Airport origine = new Airport();
+    Airport origin = new Airport();
     Airport destination = new Airport();
     String flightNumber = UUID.randomUUID().toString();
     Date departureDate = new Date();
   }
-  public Flight ( Airline airline, Airport origine, Airport destination, String
+  public Flight ( Airline airline, Airport origin, Airport destination, String
                   flightNumber, Date departureDate){
     setAirline(airline);
-    setOrigine(origine);
+    setOrigin(origin);
     setDestination(destination);
     setFlightNumber(flightNumber);
     setDepartureDate(departureDate);
   }
   public Airline getAirline() { return airline; }
 
-  public void setAirline(Airline airline) { this.airline = airline; }
+  public void setAirline(Airline airline) {
+    if(airline.equals(null))
+      try {
+        throw new  NullValuePasses("Airline is null");
+      } catch (NullValuePasses e) {
+        e.printStackTrace();
+      }
+    this.airline = airline; }
 
-  public Airport getOrigine() {return origine;}
+  public Airport getOrigin() {return origin;}
 
-  public void setOrigine(Airport origine) { this.origine = origine; }
+  public void setOrigin(Airport origin) {
+    if(origin.equals(null))
+      try {
+        throw new NullValuePasses("Origin is null");
+      } catch (NullValuePasses e) {
+        e.printStackTrace();
+      }
+    this.origin = origin; }
 
   public Airport getDestination() { return destination; }
 
-  public void setDestination(Airport destination) { this.destination = destination; }
+  public void setDestination(Airport destination) {
+    if(destination.equals(null))
+      try {
+        throw new NullValuePasses("Airport destination is null");
+      } catch (NullValuePasses e) {
+        e.printStackTrace();
+      }
+    this.destination = destination; }
 
   public String getFlightNumber() { return flightNumber; }
 
@@ -54,26 +75,26 @@ public class Flight {
       return false;
     }
     Flight flight = (Flight) o;
-    return Objects.equals(airline, flight.airline) && Objects.equals(origine,
-        flight.origine) && Objects.equals(destination, flight.destination)
+    return Objects.equals(airline, flight.airline) && Objects.equals(origin,
+        flight.origin) && Objects.equals(destination, flight.destination)
         && Objects.equals(flightNumber, flight.flightNumber) && Objects.equals(
         departureDate, flight.departureDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(airline, origine, destination, flightNumber, departureDate);
+    return Objects.hash(airline, origin, destination, flightNumber, departureDate);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
 
-    sb.append(String.format("airline= %s ", airline));
-    sb.append(String.format("origine= %s ", origine));
-    sb.append(String.format("destination= %s ", destination));
-    sb.append(String.format("flightNumber= %s ", flightNumber));
-    String dateString = new SimpleDateFormat("yyyy-MM-dd").format(departureDate);
+    sb.append(String.format("airline= %s ", getAirline()));
+    sb.append(String.format("origin= %s ", getOrigin()));
+    sb.append(String.format("destination= %s ", getDestination()));
+    sb.append(String.format("flightNumber= %s ", getFlightNumber()));
+    String dateString = new SimpleDateFormat("yyyy-MM-dd").format(getDepartureDate());
     sb.append(String.format("departureDate= %s ", dateString));
     return sb.toString() ;
   }
