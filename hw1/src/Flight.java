@@ -25,21 +25,23 @@ public class Flight {
     setFlightNumber(flightNumber);
     setDepartureDate(departureDate);
   }
-  public Airline getAirline() { return airline; }
+  public String getAirline() { return airline.toString(); }
 
   public void setAirline(Airline airline) {
-    if(airline.equals(null))
+    if(null==(airline)) {
       try {
-        throw new  NullValuePasses("Airline is null");
+        throw new NullValuePasses("Airline is null");
       } catch (NullValuePasses e) {
         e.printStackTrace();
       }
-    this.airline = airline; }
+    }
+    this.airline = airline;
+  }
 
-  public Airport getOrigin() {return origin;}
+  public String getOrigin() {return origin.toString();}
 
   public void setOrigin(Airport origin) {
-    if(origin.equals(null))
+    if(null==(origin))
       try {
         throw new NullValuePasses("Origin is null");
       } catch (NullValuePasses e) {
@@ -47,10 +49,10 @@ public class Flight {
       }
     this.origin = origin; }
 
-  public Airport getDestination() { return destination; }
+  public String getDestination() { return destination.toString(); }
 
   public void setDestination(Airport destination) {
-    if(destination.equals(null))
+    if(null==(destination))
       try {
         throw new NullValuePasses("Airport destination is null");
       } catch (NullValuePasses e) {
@@ -58,11 +60,11 @@ public class Flight {
       }
     this.destination = destination; }
 
-  public String getFlightNumber() { return flightNumber; }
+  public String getFlightNumber() { return flightNumber.toString(); }
 
   public void setFlightNumber(String flightNumber) { this.flightNumber = flightNumber; }
 
-  public Date getDepartureDate() { return departureDate; }
+  public String getDepartureDate() { return departureDate.toString(); }
 
   public void setDepartureDate(Date departureDate) { this.departureDate = departureDate; }
 
