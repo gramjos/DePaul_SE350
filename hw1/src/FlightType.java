@@ -1,0 +1,3 @@
+public enum FlightType {
+  COMMERCIAL
+}
