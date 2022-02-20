@@ -23,6 +23,7 @@ public final class FlightManager {
     flightManagerList.add( FlightFactory.createFlight(airline, origin, destination, flightNumber,
                                             departDate, ft) );
   }
+
   public void pprint(){
     if(flightManagerList!=null){
       for ( Flight fl : flightManagerList){

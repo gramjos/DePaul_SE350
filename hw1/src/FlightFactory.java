@@ -3,10 +3,7 @@ import java.util.UUID;
 
 public class FlightFactory {
 
-
-  private FlightFactory() {
-  }
-
+  private FlightFactory() {}
 
   public static Flight createFlight(Airline airline, Airport origin, Airport destination,
       UUID flightNumber, Date departDate, FlightType ft){

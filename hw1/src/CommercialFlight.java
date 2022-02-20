@@ -55,8 +55,7 @@ public class CommercialFlight implements Flight{
   public UUID getFlightNumber() { return flightNumber; }
 
   public void setFlightNumber(UUID flightNumber) {
-    if ( flightNumber == null ) this.flightNumber = UUID.randomUUID();
-    else { this.flightNumber = flightNumber; }
+   this.flightNumber = flightNumber;
   }
 
   public String getDepartureDate() { return departureDate.toString(); }
@@ -87,13 +86,12 @@ public class CommercialFlight implements Flight{
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append(String.format("airline= %s ", getAirline()));
-    sb.append(String.format("origin= %s ", getOrigin()));
-    sb.append(String.format("destination= %s ", getDestination()));
-    sb.append(String.format("flightNumber= %s ", getFlightNumber()));
-    sb.append(String.format("departureDate= %s ", getDepartureDate()));
-    return sb.toString() ;
+    String sb = String.format("airline= %s ", getAirline())
+        + String.format("origin= %s ", getOrigin())
+        + String.format("destination= %s ", getDestination())
+        + String.format("flightNumber= %s ", getFlightNumber())
+        + String.format("departureDate= %s ", getDepartureDate());
+    return sb;
   }
 }
 
