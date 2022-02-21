@@ -1,3 +1,3 @@
 public enum FlightType {
-  COMMERCIAL
+  COMMERCIAL,PASSENGER
 }

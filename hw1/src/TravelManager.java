@@ -9,12 +9,14 @@ public class TravelManager {
     }
   }
   public static void main(String[] args) throws FormatException, NullValuePasses{
-    Airport airportORD = new Airport("ORD");
-    Airport airportMEX = new Airport("MEX");
-    Airline airline = new Airline("Soul");
+
+    Airport airportORD = AirportFactory.getAirport("ORD");
+    Airport airportMEX = AirportFactory.getAirport("MEX");
+    Airline airline = AirlineFactory.getAirline("Soul");
     Date d = new Date(2022, 07, 07 ,11,28);
     UUID flightNumber = UUID.randomUUID();
     FlightType comFlight = FlightType.COMMERCIAL ;
+    FlightType pasFlight = FlightType.PASSENGER ;
 
     FlightManager fm = FlightManager.getInstance();
     FlightManager fm2 = FlightManager.getInstance();
@@ -27,6 +29,7 @@ public class TravelManager {
     System.out.println("debug 1");
     fm.pprint();
     fm.createFlight(airline, airportORD, airportMEX, flightNumber, d, comFlight);
+    fm.createFlight(airline, airportORD, airportMEX, flightNumber, d, pasFlight, 9);
 
 
     System.out.println("debug 2");

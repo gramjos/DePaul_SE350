@@ -21,7 +21,13 @@ public final class FlightManager {
       UUID flightNumber, Date departDate, FlightType ft){
     // call flight factory for creation
     flightManagerList.add( FlightFactory.createFlight(airline, origin, destination, flightNumber,
-                                            departDate, ft) );
+        departDate, ft) );
+  }
+  public void createFlight(Airline airline, Airport origin, Airport destination,
+      UUID flightNumber, Date departDate, FlightType ft, int passengerCapacity){
+    // call flight factory for creation
+    flightManagerList.add( FlightFactory.createFlight(airline, origin, destination, flightNumber,
+                                            departDate, ft, passengerCapacity) );
   }
 
   public void pprint(){
